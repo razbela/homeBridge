@@ -155,7 +155,8 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
 .brand-text { display: flex; flex-direction: column; line-height: 1; }
 .brand-name { font: var(--h-weight) 1.6rem/1 var(--serif); letter-spacing: -.015em; color: var(--navy-deep); }
 .brand-name b {
-  font-weight: 500;
+  padding-right: .14em; /* room for the slanted last letter, which background-clip would otherwise cut off */
+  font-weight: inherit;
   font-style: italic;
   background: linear-gradient(135deg, #f0b93a, var(--gold-deep));
   -webkit-background-clip: text;
