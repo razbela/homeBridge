@@ -14,6 +14,20 @@ nav.addEventListener('click', (e) => {
   }
 });
 
+// Highlight the nav link of the section currently on screen
+const navLinks = [...nav.querySelectorAll('a')];
+const spy = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+    const id = entry.target.id === 'journey' ? 'top' : entry.target.id;
+    navLinks.forEach((a) => a.classList.toggle('active', a.getAttribute('href') === `#${id}`));
+  });
+}, { rootMargin: '-45% 0px -50% 0px' });
+['journey', 'services', 'why', 'contact'].forEach((id) => {
+  const el = document.getElementById(id);
+  if (el) spy.observe(el);
+});
+
 // Lead form: no backend yet, so open the visitor's email client with the details filled in
 const CONTACT_EMAIL = 'dafna.malikzvi@gmail.com';
 const form = document.getElementById('lead-form');
@@ -45,7 +59,7 @@ if (window.gsap && window.ScrollTrigger && !matchMedia('(prefers-reduced-motion:
   gsap.from('.chapter-intro > *', { y: 24, opacity: 0, duration: 1.1, ease: 'power3.out', stagger: 0.1, delay: 0.15 });
   gsap.from('.hud', { x: 24, opacity: 0, duration: 1.1, ease: 'power3.out', delay: 0.6 });
 
-  document.querySelectorAll('.split-heading, .why-grid > *, .contact-grid > *').forEach((el) => {
+  document.querySelectorAll('.services-heading, .why-grid > *, .contact-grid > *').forEach((el) => {
     gsap.from(el, {
       y: 32,
       opacity: 0,
@@ -61,6 +75,7 @@ if (window.gsap && window.ScrollTrigger && !matchMedia('(prefers-reduced-motion:
     duration: 0.8,
     ease: 'power3.out',
     stagger: 0.07,
+    clearProps: 'transform,opacity',
     scrollTrigger: { trigger: '.service-grid', start: 'top 85%', once: true },
   });
 

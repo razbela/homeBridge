@@ -9,22 +9,54 @@
   <meta property="og:site_name" content="HomeBridge Israel">
   <meta property="og:title" content="HomeBridge Israel – Buying Property in Israel from Abroad">
   <meta property="og:description" content="Your trusted representative in Israel for bureaucracy, registrations, and coordination with banks and municipalities.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect x='1' y='1' width='46' height='46' rx='12' fill='%230d2f7a'/%3E%3Cg fill='none' stroke='%23e3a21a' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10 21.5 24 10l14 11.5' stroke-width='3'/%3E%3Cpath d='M13.5 19.5V35M34.5 19.5V35' stroke-width='2.8'/%3E%3Cpath d='M13.5 21.5q10.5 11 21 0' stroke-width='2'/%3E%3Cpath d='M5.5 35h37' stroke='%23f6efe0' stroke-width='2.6'/%3E%3C/g%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!-- Brand mark (house + bridge), referenced by <use href="#hb-mark"> in the header and footer -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="hb-tile" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#1d4fbf"/>
+        <stop offset=".55" stop-color="#0d2f7a"/>
+        <stop offset="1" stop-color="#0a1f4f"/>
+      </linearGradient>
+      <linearGradient id="hb-gold" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#ffd978"/>
+        <stop offset="1" stop-color="#c4840b"/>
+      </linearGradient>
+    </defs>
+    <symbol id="hb-mark" viewBox="0 0 48 48">
+      <rect x="1" y="1" width="46" height="46" rx="12" fill="url(#hb-tile)"/>
+      <path d="M13 2h22a12 12 0 0 1 11 7" fill="none" stroke="#ffffff" stroke-opacity=".18" stroke-width="1.2" stroke-linecap="round"/>
+      <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- home: pitched roof; its walls double as the towers of a suspension bridge -->
+        <path d="M10 21.5 24 10l14 11.5" stroke="url(#hb-gold)" stroke-width="2.6"/>
+        <path d="M13.5 19.5V35M34.5 19.5V35" stroke="url(#hb-gold)" stroke-width="2.4"/>
+        <!-- bridge: main cable, hangers, backstays and deck -->
+        <path d="M13.5 21.5q10.5 11 21 0" stroke="url(#hb-gold)" stroke-width="1.6"/>
+        <path d="M18.75 25.6V35M24 27V35M29.25 25.6V35" stroke="url(#hb-gold)" stroke-width="1.1" stroke-opacity=".85"/>
+        <path d="M13.5 21.5 7 35M34.5 21.5 41 35" stroke="url(#hb-gold)" stroke-width="1.1" stroke-opacity=".6"/>
+        <path d="M5.5 35h37" stroke="#f6efe0" stroke-width="2.2"/>
+      </g>
+    </symbol>
+  </svg>
+
   <header class="site-header">
     <div class="container header-inner">
-      <a href="#top" class="logo-link"><img src="assets/homebridge-logo.png" alt="HomeBridge Israel" class="logo"></a>
+      <a href="#top" class="brand" aria-label="HomeBridge Israel, home">
+        <svg class="brand-mark" aria-hidden="true"><use href="#hb-mark"/></svg>
+        <span class="brand-text"><span class="brand-name">Home<b>Bridge</b></span></span>
+      </a>
       <nav class="main-nav" id="main-nav">
         <a href="#top" class="active">Home</a>
         <a href="#services">Services</a>
         <a href="#why">About</a>
         <a href="#contact">Contact</a>
       </nav>
-      <a href="#contact" class="btn btn-sm header-cta">Schedule a Call</a>
       <button class="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav">
         <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
       </button>
@@ -84,7 +116,6 @@
         <aside class="hud" aria-hidden="true">
           <div class="hud-head">
             <span>Case file · HB-IL</span>
-            <span class="hud-pct">00%</span>
           </div>
           <ol class="hud-steps">
             <li>Purchase process</li>
@@ -94,23 +125,24 @@
             <li>Keys handed over</li>
           </ol>
           <div class="hud-bar"><span class="journey-progress-bar"></span></div>
-          <div class="hud-foot">31.7683° N · 35.2137° E</div>
         </aside>
 
         <div class="scroll-hint" aria-hidden="true"><span>Scroll to build</span><i></i></div>
       </div>
     </section>
 
-    <section class="section" id="services">
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>Purchase Process</span><span>Authority Registration</span><span>Tax &amp; Purchase Tax</span><span>Municipality &amp; Tabu</span><span>Power of Attorney</span><span>Translations &amp; Apostille</span><span>Bureaucracy Support</span><span>Personal Consulting</span>
+        <span>Purchase Process</span><span>Authority Registration</span><span>Tax &amp; Purchase Tax</span><span>Municipality &amp; Tabu</span><span>Power of Attorney</span><span>Translations &amp; Apostille</span><span>Bureaucracy Support</span><span>Personal Consulting</span>
+      </div>
+    </div>
+
+    <section class="section services fit" id="services">
       <div class="container">
-        <div class="split-heading">
-          <div>
-            <div class="eyebrow">What We Do</div>
-            <h2>Israeli bureaucracy, handled end-to-end</h2>
-          </div>
-          <div>
-            <p>From the first form to the final deed, we deal with every Israeli office for you.</p>
-          </div>
+        <div class="services-heading">
+          <div class="eyebrow">What We Do</div>
+          <h2>Israeli bureaucracy, handled end&#8209;to&#8209;end.</h2>
         </div>
         <ul class="service-grid">
           <li class="service-card">
@@ -157,7 +189,7 @@
       </div>
     </section>
 
-    <section class="section section-dark" id="why">
+    <section class="section section-dark fit" id="why">
       <div class="container why-grid">
         <div>
           <div class="eyebrow">Why HomeBridge</div>
@@ -172,7 +204,7 @@
       </div>
     </section>
 
-    <section class="section" id="contact">
+    <section class="section fit" id="contact">
       <div class="container contact-grid">
         <div class="contact-intro">
           <div class="eyebrow">Schedule a Call</div>
@@ -220,7 +252,10 @@
   <footer class="site-footer">
     <div class="container footer-grid">
       <div>
-        <img src="assets/homebridge-logo.png" alt="HomeBridge Israel" class="footer-logo">
+        <a href="#top" class="brand brand-lg" aria-label="HomeBridge Israel, back to top">
+          <svg class="brand-mark" aria-hidden="true"><use href="#hb-mark"/></svg>
+          <span class="brand-text"><span class="brand-name">Home<b>Bridge</b></span><span class="brand-sub">Israel</span></span>
+        </a>
         <p class="tagline">Your property in Israel, your peace of mind.</p>
       </div>
       <div>

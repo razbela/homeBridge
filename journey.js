@@ -7,7 +7,6 @@
   const canvas = section.querySelector('.journey-canvas');
   const chapters = [...section.querySelectorAll('.chapter')];
   const hudSteps = [...section.querySelectorAll('.hud-steps li')];
-  const hudPct = section.querySelector('.hud-pct');
   const bar = section.querySelector('.journey-progress-bar');
   const header = document.querySelector('.site-header');
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -410,7 +409,6 @@
     onUpdate: (self) => {
       setChapter(self.progress);
       bar.style.transform = `scaleX(${self.progress})`;
-      hudPct.textContent = `${String(Math.round(self.progress * 100)).padStart(2, '0')}%`;
       section.classList.toggle('has-scrolled', self.progress > 0.02);
     },
   });
